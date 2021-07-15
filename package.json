@@ -1,0 +1,25 @@
+{
+  "name": "@softgiving/serverless-step-functions-local",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "scripts": {
+    "lint:check": "prettier --check 'src/**/*.ts'",
+    "lint:fix": "prettier --write 'src/**/*.ts'",
+    "build": "rm -rf build && tsc",
+    "build:watch": "npm run build -- --watch"
+  },
+  "keywords": [],
+  "author": "Garret Harp <garret@softgiving.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.171",
+    "prettier": "2.3.2",
+    "typescript": "4.3.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "stepfunctions-local": "^1.3.1"
+  }
+}
