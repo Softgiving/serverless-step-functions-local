@@ -8,25 +8,40 @@ declare namespace Serverless {
       servicePath: string
     }
 
+    configSchemaHandler: {
+      defineCustomProperties(options: any): any
+    }
+
     service: {
+      service: string
+
       custom?: {
-        'serverless-offline': {
-          lambdaPort: number
+        'serverless-offline'?: {
+          lambdaPort?: number
+        }
+        '@softgiving/serverless-step-functions-local': Options
+      }
+
+      initialServerlessConfig?: {
+        stepFunctions?: {
+          stateMachines?: any
         }
       }
 
       provider: {
+        stage: string
         name: string
         region: string
       }
 
       functions: {
-        [key: string]: Serverless.Function
+        [key: string]: any
       }
 
       package: Serverless.Package
 
       getAllFunctions(): string[]
+      getFunction(name: string): Serverless.Function
     }
 
     pluginManager: PluginManager
@@ -35,10 +50,8 @@ declare namespace Serverless {
   interface Options {
     debug?: boolean
 
-    simulator?: {
-      start?: boolean
-      port?: number
-    }
+    simulatorStart?: boolean
+    simulatorPort?: number
   }
 
   interface Function {

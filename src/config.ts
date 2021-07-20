@@ -9,9 +9,7 @@ export const DEFAULT_OPTIONS = (serverless: Serverless.Instance) => ({
   offline: {
     port: getOfflineLambdaPort(serverless)
   },
-  simulator: {
-    start: true,
-    port: 4584
-  },
+  simulatorStart: true,
+  simulatorPort: 8083,
   debug: false
 })

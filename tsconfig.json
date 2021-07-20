@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "/",
     "outDir": "build",
+    "module": "commonjs",
     "target": "es2018",
     "moduleResolution": "node",
     "sourceMap": true,
