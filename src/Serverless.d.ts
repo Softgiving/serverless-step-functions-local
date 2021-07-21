@@ -35,7 +35,9 @@ declare namespace Serverless {
       }
 
       functions: {
-        [key: string]: any
+        [key: string]: {
+          name?: string
+        }
       }
 
       package: Serverless.Package
@@ -68,5 +70,18 @@ declare namespace Serverless {
 
   interface PluginManager {
     spawn(command: string): Promise<void>
+  }
+}
+
+interface StepFunctionState {
+  Type: string
+  Resource: string | { [key: string]: any }
+  Parameters?: { [key: string]: any }
+}
+
+interface StepFunctionStateMachine {
+  StartAt: string
+  States: {
+    [key: string]: StepFunctionState
   }
 }

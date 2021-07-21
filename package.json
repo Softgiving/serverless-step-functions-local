@@ -1,7 +1,7 @@
 {
   "name": "@softgiving/serverless-step-functions-local",
   "version": "1.0.0",
-  "description": "",
+  "description": "Run step function locally using the serverless framework",
   "main": "build/main.js",
   "types": "build/main.d.ts",
   "scripts": {
