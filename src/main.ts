@@ -90,7 +90,7 @@ class ServerlessStepFunctionLocal {
 
     const port = settings.simulatorStart ? 8083 : settings.simulatorPort
 
-    await waitUntilUsed(port, 500, 60 * 1000)
+    await waitUntilUsed(port, 100, 1000 * 60)
   }
 }
 

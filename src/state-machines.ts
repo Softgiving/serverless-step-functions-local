@@ -22,14 +22,15 @@ export class StateMachines {
       return this.stateMachines
     }
 
-    for (const [Name, Definition] of config.stepFunctions.stateMachines) {
-      if (!this.validateDefinition(Definition) || typeof Name !== 'string') {
+    for (const [Name, Definition] of Object.entries(config.stepFunctions.stateMachines)) {
+      const def = (Definition as any).definition as StepFunctionStateMachine
+      if (!this.validateDefinition(def) || typeof Name !== 'string') {
         this.instance.log(
           `Invalid state machine definition for Machine "${Name.toString()}"`,
           'error'
         )
       } else {
-        this.stateMachines.set(Name, Definition)
+        this.stateMachines.set((Definition as any).name || Name, def)
       }
     }
 
